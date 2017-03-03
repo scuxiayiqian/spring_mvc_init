@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/websocket
+        http://www.springframework.org/schema/websocket/spring-websocket-4.0.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+    <jpa:repositories base-package="entity"
+                      entity-manager-factory-ref="entityManagerFactory"
+                      transaction-manager-ref="transactionManager"/>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <!--<websocket:handlers>-->
+        <!--<websocket:mapping path="/websocket" handler="endpointHandler"/>-->
+        <!--<websocket:handshake-interceptors>-->
+            <!--<bean class="istc.cart.socket.HandshakeInterceptor"/>-->
+        <!--</websocket:handshake-interceptors>-->
+        <!--&lt;!&ndash;<websocket:sockjs/>&ndash;&gt;-->
+    <!--</websocket:handlers>-->
+
+    <!--<mvc:interceptors>-->
+        <!--<bean class="istc.cart.filter.JSONPInterceptor"/>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/driver/**"/>-->
+            <!--<bean class="istc.cart.filter.permission.DriverInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/scalper/**"/>-->
+            <!--<bean class="istc.cart.filter.permission.ScalperInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/company/**"/>-->
+            <!--<bean class="istc.cart.filter.permission.CompanyInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/support/**"/>-->
+            <!--<bean class="istc.cart.filter.permission.SupportInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
+</beans>
